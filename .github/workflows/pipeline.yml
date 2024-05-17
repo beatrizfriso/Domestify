@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,15 +22,22 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish Artifact
+      run: dotnet publish -c Release -o ./publish
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: ./publish
 
   download-artifacts:
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
     - uses: actions/checkout@v4
     - name: Download artifacts
-      uses: actions/download-artifact@v4.1.7
+      uses: actions/download-artifact@v3
       with:
-        name: domestify
-
-          
+        name: my-artifact
+        path: ./downloaded-artifacts
