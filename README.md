@@ -21,8 +21,6 @@ I'm planning to integrate the following tools and practices to enhance the proje
 - **Security Scans**: Integration with OWASP ZAP for security scanning.
 - **Code Quality**: Use of SonarCloud for code analysis and quality checks.
 - **Notifications**: Setup for notifications via Slack and WhatsApp.
-- **SonarCloud**: For static code analysis and ensuring code quality.
-- **OWASP ZAP**: To conduct security scans and identify vulnerabilities.
 - **Dependabot**: For automated dependency updates and security alerts.
 - **Azure Deployment**: Automating deployments to Azure.
 
